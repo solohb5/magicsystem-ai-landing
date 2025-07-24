@@ -3,13 +3,9 @@
 import { motion } from 'framer-motion'
 
 export default function HeroSection() {
-  const handleBookCall = () => {
-    document.getElementById('calendar-section')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <section className="min-h-screen flex items-center justify-center px-8 py-24 relative">
-      <div className="max-w-4xl mx-auto text-center z-10 space-y-12">
+    <section className="min-h-screen flex flex-col items-center justify-center px-8 py-24 relative">
+      <div className="max-w-4xl mx-auto text-center z-10 space-y-12 flex-1 flex flex-col justify-center">
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,10 +34,7 @@ export default function HeroSection() {
             Something extraordinary is happening. A few have discovered it. Most haven't.
           </p>
           
-          <button
-            onClick={handleBookCall}
-            className="bg-gradient-to-r from-magic-cyan to-magic-purple text-white font-semibold px-8 py-4 rounded-lg hover:shadow-magic-glow transform hover:scale-105 transition-all duration-300 text-lg"
-          >
+          <button className="bg-gradient-to-r from-magic-cyan to-magic-purple text-white font-semibold px-8 py-4 rounded-lg hover:shadow-magic-glow transform hover:scale-105 transition-all duration-300 text-lg">
             Discover What They Know →
           </button>
 
@@ -51,6 +44,25 @@ export default function HeroSection() {
         </motion.div>
 
       </div>
+
+      {/* Animated scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center space-y-2 text-magic-cyan/60"
+        >
+          <span className="text-xs uppercase tracking-wider">Scroll</span>
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }
