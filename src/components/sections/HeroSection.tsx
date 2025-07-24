@@ -42,39 +42,32 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <h1 className="text-6xl md:text-8xl font-black mb-4 bg-gradient-to-r from-white via-magic-cyan to-magic-purple bg-clip-text text-transparent">
-            MAGICSYSTEM AI
+          <h1 className="text-6xl md:text-8xl font-black mb-4">
+            <span className="bg-gradient-to-r from-white to-magic-cyan bg-clip-text text-transparent">
+              MAGICSYSTEM{' '}
+            </span>
+            <span className="text-magic-cyan magic-text-glow">
+              AI
+            </span>
           </h1>
         </motion.div>
 
-        {/* Main headline with typewriter effect */}
+        {/* Main headline with mystery */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-8"
+          className="mb-12"
         >
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-            Stop being the{' '}
-            <motion.span
-              className="relative inline-block"
-              initial={{ scale: 1 }}
-              animate={{ scale: [1, 0.8, 1] }}
-              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-            >
-              <span className="text-red-400">bottleneck</span>
-              <motion.div
-                className="absolute inset-0 border-2 border-red-400 rounded"
-                initial={{ scale: 1, opacity: 1 }}
-                animate={{ scale: 1.2, opacity: 0 }}
-                transition={{ duration: 1, repeat: Infinity, repeatDelay: 3 }}
-              />
-            </motion.span>
-            .
-            <br />
-            Start being{' '}
-            <span className="magic-text-glow text-magic-cyan">superhuman</span>.
+            The secret enhancement{' '}
+            <span className="text-red-400">others</span>{' '}
+            don't want you to know about
           </h2>
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            A select few have discovered something that multiplies their capabilities beyond what seems possible. 
+            They're not just working differently—they're operating at a completely different level.
+          </p>
         </motion.div>
 
         {/* CTA Button */}
@@ -82,39 +75,26 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-12"
+          className="mb-16"
         >
           <Button 
             onClick={handleBookCall}
             size="lg"
             className="text-xl px-12 py-6 transform hover:scale-105 transition-all duration-300"
           >
-            Book Your Transformation Call →
+            Discover What This Is →
           </Button>
           
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5 }}
-            className="mt-4 text-sm text-gray-400"
+            className="mt-6 text-sm text-gray-400"
           >
-            <span className="text-magic-cyan font-semibold">5 partnerships remaining</span>
+            <span className="text-magic-cyan font-semibold">Only 5 spots available</span> for the next cohort
           </motion.p>
         </motion.div>
 
-        {/* Subtle value proposition */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="max-w-3xl mx-auto"
-        >
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-            While others build robots to replace humans, we build the{' '}
-            <span className="text-magic-purple font-semibold">cyborg enhancement system</span>{' '}
-            that makes humans unstoppable.
-          </p>
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}
