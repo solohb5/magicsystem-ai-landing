@@ -19,15 +19,15 @@ export default function HeroSection() {
         }}
       />
       
-      {/* Asymmetric layout container */}
-      <div className="relative z-10 min-h-screen flex items-center">
-        <div className="w-full max-w-7xl mx-auto px-8 lg:px-12">
+      {/* Properly centered layout container */}
+      <div className="relative z-10 min-h-screen flex items-center justify-center">
+        <div className="w-full max-w-6xl mx-auto px-8 lg:px-16">
           
-          {/* Grid-based asymmetric layout */}
-          <div className="grid grid-cols-12 gap-8 items-center min-h-screen py-24">
+          {/* Centered content with proper balance */}
+          <div className="min-h-screen flex flex-col justify-center py-24">
             
-            {/* Main content - offset for sophistication */}
-            <div className="col-span-12 lg:col-span-10 lg:col-start-1">
+            {/* Main content container */}
+            <div className="w-full text-center lg:text-left">
               
               {/* Brand name with elegant typography */}
               <motion.div
@@ -71,22 +71,25 @@ export default function HeroSection() {
                 </h1>
               </motion.div>
 
-              {/* Content section with better spacing */}
+              {/* Content section with proper balance */}
               <div className="space-y-16">
                 
-                {/* Main message */}
+                {/* Main message - properly centered and balanced */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                  className="max-w-4xl"
+                  className="max-w-5xl mx-auto"
                 >
-                  <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-stone-100 leading-tight mb-12">
+                  <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-stone-100 leading-tight mb-16 text-center lg:text-left">
                     Ever feel like you're capable of so much more?
                   </h2>
                   
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-                    <div className="space-y-8">
+                  {/* Two-column layout with proper spacing */}
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+                    
+                    {/* Left column - main content */}
+                    <div className="lg:col-span-2 space-y-8">
                       <p className="text-xl md:text-2xl text-stone-300 leading-relaxed">
                         Most people spend years stuck doing things the hard way. 
                         What if there was a different approach?
@@ -98,10 +101,10 @@ export default function HeroSection() {
                       </p>
                     </div>
 
-                    {/* Side content with better positioning */}
-                    <div className="space-y-8 lg:pt-8">
-                      <div className="border-l-2 border-warm-400/40 pl-8">
-                        <p className="text-stone-300 leading-relaxed mb-6">
+                    {/* Right column - CTA and details */}
+                    <div className="space-y-8">
+                      <div className="border-l-2 border-warm-400/40 pl-6">
+                        <p className="text-stone-300 leading-relaxed mb-8">
                           Now I help others do the same. It's not about working harder — 
                           it's about working with precision.
                         </p>
@@ -111,7 +114,7 @@ export default function HeroSection() {
                           <motion.button 
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="group relative bg-stone-50 text-stone-900 font-medium px-10 py-4 rounded-sm transition-all duration-300 hover:bg-warm-50 hover:shadow-xl"
+                            className="w-full lg:w-auto group relative bg-stone-50 text-stone-900 font-medium px-8 py-4 rounded-sm transition-all duration-300 hover:bg-warm-50 hover:shadow-xl"
                           >
                             <span className="relative z-10">Start the conversation</span>
                             <div className="absolute inset-0 bg-warm-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-sm" />
@@ -131,26 +134,26 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Elegant scroll indicator */}
+      {/* Centered scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5, duration: 1.5 }}
-        className="absolute bottom-12 left-12 z-10"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
       >
-        <div className="flex items-center space-x-4 text-stone-400">
-          <motion.div 
-            className="w-px h-16 bg-gradient-to-b from-warm-400/60 to-transparent"
-            animate={{ scaleY: [1, 1.2, 1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
+        <div className="flex flex-col items-center space-y-3 text-stone-400">
           <motion.div
             animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             className="text-xs uppercase tracking-widest font-medium"
           >
             Scroll to explore
           </motion.div>
+          <motion.div 
+            className="w-px h-12 bg-gradient-to-b from-warm-400/60 to-transparent"
+            animate={{ scaleY: [1, 1.2, 1] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
       </motion.div>
     </section>
