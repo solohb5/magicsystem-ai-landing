@@ -13,49 +13,47 @@ export default function ParadigmShiftSection() {
   }
 
   return (
-    <section ref={ref} className="py-32 px-6 bg-gradient-to-b from-magic-dark to-magic-gray">
-      <div className="max-w-5xl mx-auto">
+    <section ref={ref} className="py-24 px-8 bg-gradient-to-b from-magic-dark/50 to-magic-gray/50">
+      <div className="max-w-4xl mx-auto space-y-16">
+        
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.6 }}
+          className="text-center space-y-6"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-            While others struggle with <span className="text-red-400">limitations</span>...
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+            This Isn't for <span className="text-red-400">Everyone</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            A select few have discovered something different. They're not just working faster—they're operating at a completely different level of capability.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Only 5 spots available for the next cohort. This conversation will determine if you're ready for what others have discovered.
           </p>
         </motion.div>
 
-        {/* Simple reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-center space-y-8"
         >
-          <div className="max-w-3xl mx-auto mb-12">
-            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-              What if the solution isn't replacing human intelligence, but enhancing it beyond what you thought possible?
-            </p>
-            
-            <div className="bg-gradient-to-br from-magic-purple/10 to-magic-cyan/10 rounded-2xl p-8 border border-magic-cyan/20 shadow-magic-glow/50">
-              <p className="text-xl md:text-2xl font-semibold text-white mb-4">
-                "I'm not just working faster—I'm thinking at a completely different level."
-              </p>
-              <p className="text-magic-cyan">— Someone who discovered this</p>
+          <div className="bg-red-900/20 rounded-xl p-6 border border-red-500/30 inline-block">
+            <div className="text-red-400 font-bold mb-2">⚠️ Limited Availability</div>
+            <div className="text-white">
+              <span className="text-red-400 font-bold text-xl">3 spots remaining</span> in current cohort
+            </div>
+            <div className="text-gray-400 text-sm mt-2">
+              Next opportunity: 2025
             </div>
           </div>
           
           <button
             onClick={handleBookCall}
-            className="bg-gradient-to-r from-magic-cyan to-magic-purple text-white font-semibold px-8 py-4 rounded-lg hover:shadow-magic-glow transform hover:scale-105 transition-all duration-300"
+            className="bg-gradient-to-r from-magic-cyan to-magic-purple text-white font-semibold px-8 py-4 rounded-lg hover:shadow-magic-glow transform hover:scale-105 transition-all duration-300 text-lg"
           >
-            See What They Discovered →
+            See If You Qualify →
           </button>
         </motion.div>
+
       </div>
     </section>
   )

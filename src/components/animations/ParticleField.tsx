@@ -24,7 +24,7 @@ export default function ParticleField() {
     if (!ctx) return
 
     const particles: Particle[] = []
-    const maxParticles = 5
+    const maxParticles = 3
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth
