@@ -1,4 +1,45 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Get elements
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const mainContent = document.getElementById('mainContent');
+    const loadingWords = document.querySelectorAll('.loading-word');
+    
+    // Function to show main content
+    function showMainContent() {
+        if (loadingOverlay) {
+            loadingOverlay.style.opacity = '0';
+            loadingOverlay.style.visibility = 'hidden';
+            // Remove from DOM after fade
+            setTimeout(() => {
+                loadingOverlay.style.display = 'none';
+            }, 800);
+        }
+        
+        if (mainContent) {
+            mainContent.style.opacity = '1';
+        }
+    }
+    
+    // Start word reveal animation
+    if (loadingWords.length > 0) {
+        loadingWords.forEach((word, index) => {
+            setTimeout(() => {
+                word.style.opacity = '1';
+                word.style.transform = 'translateY(0)';
+                word.style.transition = 'all 0.6s ease-out';
+            }, index * 300);
+        });
+    }
+    
+    // Show main content after animation completes
+    setTimeout(showMainContent, 2000);
+    
+    // Absolute fallback - force show after 4 seconds no matter what
+    setTimeout(() => {
+        if (loadingOverlay) loadingOverlay.style.display = 'none';
+        if (mainContent) mainContent.style.opacity = '1';
+    }, 4000);
+    
     // Smooth arrow fade on scroll
     const scrollArrow = document.querySelector('.scroll-arrow');
     
