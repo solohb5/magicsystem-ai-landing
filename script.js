@@ -1,6 +1,9 @@
 // Track when page actually loads
 let pageLoadTime = Date.now();
 
+// Mark that main script loaded successfully
+window.mainScriptLoaded = true;
+
 document.addEventListener('DOMContentLoaded', function() {
     // Get elements
     const loadingOverlay = document.getElementById('loadingOverlay');

@@ -461,17 +461,52 @@
         </section>
     </div> <!-- End main-content -->
     
-    <script src="./script.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
     
     <!-- Inline fallback script in case external script fails -->
     <script>
+        // Track if main script loaded
+        window.mainScriptLoaded = false;
+        
         // Emergency fallback if external script doesn't load
+        setTimeout(function() {
+            if (!window.mainScriptLoaded) {
+                console.log('External script failed - running inline fallback');
+                
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                const mainContent = document.getElementById('mainContent');
+                const loadingWords = document.querySelectorAll('.loading-word');
+                
+                // Quick word reveal
+                loadingWords.forEach(function(word) {
+                    word.style.opacity = '1';
+                    word.style.transform = 'translateY(0)';
+                    word.style.transition = 'all 0.3s ease-out';
+                });
+                
+                // Show main content after brief animation
+                setTimeout(function() {
+                    if (loadingOverlay) {
+                        loadingOverlay.style.opacity = '0';
+                        loadingOverlay.style.visibility = 'hidden';
+                        setTimeout(function() {
+                            loadingOverlay.style.display = 'none';
+                        }, 500);
+                    }
+                    if (mainContent) {
+                        mainContent.style.opacity = '1';
+                    }
+                }, 800);
+            }
+        }, 1000);
+        
+        // Absolute emergency fallback
         setTimeout(function() {
             const loadingOverlay = document.getElementById('loadingOverlay');
             const mainContent = document.getElementById('mainContent');
             
             if (loadingOverlay && loadingOverlay.style.display !== 'none') {
-                console.log('Emergency fallback triggered - external script may have failed');
+                console.log('Absolute emergency fallback triggered');
                 loadingOverlay.style.display = 'none';
                 if (mainContent) mainContent.style.opacity = '1';
             }
