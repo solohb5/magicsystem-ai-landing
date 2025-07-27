@@ -14,6 +14,12 @@
             box-sizing: border-box;
         }
 
+        html {
+            background: #1e1e1e;
+            overscroll-behavior: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
         body {
             font-family: 'Inter', system-ui, sans-serif;
             background: #1e1e1e;
@@ -23,12 +29,16 @@
             padding: 0;
             position: relative;
             overflow-x: hidden;
+            overscroll-behavior: none;
+            overscroll-behavior-y: none;
         }
 
-        /* Prevent mobile viewport jumping */
+        /* Prevent mobile viewport jumping and overscroll */
         @supports (-webkit-touch-callout: none) {
-            body {
+            html, body {
                 min-height: -webkit-fill-available;
+                overscroll-behavior: none;
+                -webkit-overscroll-behavior: none;
             }
         }
 
@@ -197,6 +207,7 @@
             justify-content: center;
             align-items: center;
             padding: 6rem;
+            padding-bottom: 8rem;
         }
 
         .vision-text {
@@ -339,16 +350,19 @@
             }
             
             .bottom-right-text {
-                position: absolute;
+                position: fixed;
                 bottom: 5rem;
                 right: 2rem;
                 max-width: 280px;
                 text-align: right;
                 border-right: 2px solid #78716c;
                 padding-right: 1rem;
-                transform: translateZ(0);
+                transform: translate3d(0, 0, 0);
+                -webkit-transform: translate3d(0, 0, 0);
                 backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
                 will-change: transform;
+                z-index: 10;
             }
             
             .second-section, .third-section {
